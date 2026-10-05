@@ -1,0 +1,492 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --crema: #fffaf0;
+    --amarillo: #fdf1c7;
+    --dorado: #c9a24b;
+    --dorado-oscuro: #a98232;
+    --texto: #6b5a3c;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    text-align: center;
+    background: linear-gradient(160deg, #ffffff 0%, var(--crema) 45%, var(--amarillo) 100%);
+    color: var(--texto);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 15px;
+}
+
+.main-container {
+    width: 100%;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    animation: aparecer 1.2s ease both;
+}
+
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Paloma flotando */
+.dove {
+    font-size: 3rem;
+    animation: flotar 3s ease-in-out infinite;
+}
+
+@keyframes flotar {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-8px); }
+}
+
+.intro {
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+.subtitle {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.2rem;
+    color: var(--dorado);
+    margin-top: 6px;
+}
+
+h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3rem;
+    font-weight: 400;
+    color: var(--dorado-oscuro);
+    line-height: 1.1;
+}
+
+.divider {
+    color: var(--dorado);
+    letter-spacing: 8px;
+    font-size: 1rem;
+    margin: 4px 0;
+}
+
+.verse {
+    font-style: italic;
+    font-size: 1.15rem;
+    max-width: 380px;
+}
+
+.invite {
+    font-size: 1.15rem;
+    max-width: 380px;
+}
+
+h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--dorado-oscuro);
+    margin-top: 6px;
+}
+
+p {
+    font-size: 1.1rem;
+}
+
+/* Tarjetas ceremonia / celebración */
+.card {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid var(--dorado);
+    border-radius: 14px;
+    padding: 18px 15px;
+    box-shadow: 0 4px 18px rgba(201, 162, 75, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.card h3 {
+    font-size: 1.4rem;
+    color: var(--dorado-oscuro);
+    margin-bottom: 4px;
+}
+
+.map-link {
+    margin-top: 8px;
+    color: var(--dorado-oscuro);
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 1px solid var(--dorado);
+    align-self: center;
+    transition: color 0.3s ease;
+}
+
+.map-link:hover {
+    color: var(--dorado);
+}
+
+/* --- CONTADOR --- */
+.oculto {
+    display: none !important;
+}
+
+.count-title {
+    letter-spacing: 3px;
+    margin-top: 10px;
+}
+
+.c-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 8px 0 15px;
+    width: 100%;
+}
+
+/* Tarjetas con degradé dorado */
+.c-items {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 70px;
+    padding: 14px 8px 10px;
+    background: linear-gradient(145deg, #dcb85f 0%, #b88a2e 55%, #9a7222 100%);
+    border: 1px solid #e9d28f;
+    border-radius: 16px;
+    box-shadow:
+        0 6px 18px rgba(154, 114, 34, 0.35),
+        inset 0 0 0 2px rgba(255, 255, 255, 0.25);
+}
+
+.c-number {
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #ffffff;
+    text-shadow: 0 2px 6px rgba(90, 60, 5, 0.45);
+    font-variant-numeric: lining-nums tabular-nums;
+}
+
+.c-text {
+    margin-top: 8px;
+    padding-top: 6px;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    width: 100%;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #fff8e1;
+}
+
+/* Animación cuando cambia el número */
+.c-number.cambio {
+    animation: cambioNumero 0.4s ease;
+}
+
+@keyframes cambioNumero {
+    0%   { opacity: 0; transform: translateY(-8px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Destello dorado que recorre las tarjetas */
+.c-items::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+    transform: skewX(-20deg);
+    animation: destello 5s ease-in-out infinite;
+}
+
+.c-items:nth-child(2)::after { animation-delay: 0.25s; }
+.c-items:nth-child(3)::after { animation-delay: 0.5s; }
+.c-items:nth-child(4)::after { animation-delay: 0.75s; }
+
+@keyframes destello {
+    0%       { left: -120%; }
+    30%, 100% { left: 160%; }
+}
+
+/* Mensaje del gran día */
+.mensaje-dia {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.6rem;
+    line-height: 1.2;
+    color: var(--dorado-oscuro);
+    margin: 10px 0 15px;
+    animation: aparecer 1.2s ease both;
+}
+/* --- BOTÓN --- */
+.btn {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    background-color: var(--dorado);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 14px 20px;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(201, 162, 75, 0.4);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background-color: var(--dorado-oscuro);
+    transform: scale(1.03);
+}
+
+.btn span {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0;
+    margin-top: 4px;
+}
+
+.info-text {
+    font-size: 1rem;
+}
+
+footer {
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: var(--dorado-oscuro);
+    text-decoration: underline;
+}
+
+/* ==========================================
+   VERSION DE ESCRITORIO (PANTALLAS > 768px)
+   ========================================== */
+    .c-container {
+        gap: 18px;
+    }
+
+    .c-items {
+        min-width: 110px;
+        padding: 20px 10px 14px;
+    }
+
+    .c-number {
+        font-size: 3.4rem;
+    }
+
+    .c-text {
+        font-size: 0.85rem;
+    }
+    /* ==========================================================
+   MARCO DECORATIVO (rosario, palomitas y línea dorada)
+   Pegar al FINAL de style.css
+   ========================================================== */
+
+/* Espacio extra para que el contenido no toque el marco */
+body {
+    position: relative;
+    padding: 70px 28px;
+}
+
+.main-container {
+    position: relative;
+    z-index: 1; /* el contenido queda por encima de las palomitas */
+}
+
+.marco {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none; /* no bloquea clics ni botones */
+}
+
+/* Líneas doradas del marco (doble, muy finas) */
+.marco::before,
+.marco::after {
+    content: "";
+    position: absolute;
+    border-radius: 6px;
+}
+
+.marco::before {
+    inset: 10px;
+    border: 1px solid rgba(201, 162, 75, 0.85);
+    animation: respiracion 6s ease-in-out infinite;
+}
+
+.marco::after {
+    inset: 16px;
+    border: 1px solid rgba(201, 162, 75, 0.35);
+}
+
+@keyframes respiracion {
+    0%, 100% { box-shadow: 0 0 0 rgba(201, 162, 75, 0); }
+    50%      { box-shadow: 0 0 12px rgba(201, 162, 75, 0.35); }
+}
+
+/* --- Esquinas --- */
+.esquina {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    animation: titilar 5s ease-in-out infinite;
+}
+
+.esq-tl { top: 0;    left: 0; }
+.esq-tr { top: 0;    right: 0; animation-delay: 1.2s; }
+.esq-bl { bottom: 0; left: 0;  animation-delay: 2.4s; }
+.esq-br { bottom: 0; right: 0; animation-delay: 3.6s; }
+
+@keyframes titilar {
+    0%, 100% { opacity: 0.8; }
+    50%      { opacity: 1; }
+}
+
+/* --- Rosario (perlas con cuentas doradas cada tanto) --- */
+.rosario {
+    --b: 16px; /* tamaño de cada perla */
+    position: absolute;
+    left: 38px;
+    right: 38px;
+    height: var(--b);
+
+    background-image:
+        /* cuenta dorada grande cada 5 perlas */
+        radial-gradient(circle closest-side at 50% 50%, #f0d98a 0%, #c9a24b 60%, #a98232 88%, transparent 94%),
+        /* brillo de la perla */
+        radial-gradient(circle closest-side at 38% 38%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.95) 18%, transparent 32%),
+        /* perla */
+        radial-gradient(circle closest-side at 50% 50%, #fbf5e1 0%, #eadba8 55%, #c9a24b 76%, transparent 82%),
+        /* hilo dorado */
+        linear-gradient(to bottom, transparent calc(50% - 0.5px), rgba(201, 162, 75, 0.7) calc(50% - 0.5px), rgba(201, 162, 75, 0.7) calc(50% + 0.5px), transparent calc(50% + 0.5px));
+    background-size:
+        calc(var(--b) * 5) var(--b),
+        var(--b) var(--b),
+        var(--b) var(--b),
+        var(--b) var(--b);
+    background-repeat: repeat-x;
+    filter: drop-shadow(0 1px 1px rgba(150, 110, 30, 0.25));
+}
+
+.rosario-top    { top: 21px; }
+.rosario-bottom { bottom: 21px; }
+
+/* Destello suave que recorre las perlas */
+.rosario::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(90deg, transparent 0%, rgba(255, 244, 200, 0.95) 50%, transparent 100%);
+    background-size: 22% 100%;
+    background-repeat: no-repeat;
+    background-position: -40% 0;
+    -webkit-mask-image: radial-gradient(circle closest-side at 50% 50%, #000 0%, #000 76%, transparent 82%);
+    mask-image: radial-gradient(circle closest-side at 50% 50%, #000 0%, #000 76%, transparent 82%);
+    -webkit-mask-size: var(--b) var(--b);
+    mask-size: var(--b) var(--b);
+    -webkit-mask-repeat: repeat-x;
+    mask-repeat: repeat-x;
+    animation: recorrer 8s ease-in-out infinite;
+}
+
+.rosario-bottom::after {
+    animation-delay: 4s;
+}
+
+@keyframes recorrer {
+    0%        { background-position: -40% 0; }
+    45%, 100% { background-position: 140% 0; }
+}
+
+/* --- Cruz --- */
+.cruz {
+    position: absolute;
+    bottom: 9px;
+    left: 50%;
+    width: 22px;
+    height: 35px;
+    margin-left: -11px;
+    filter: drop-shadow(0 1px 2px rgba(150, 110, 30, 0.35));
+}
+
+/* --- Palomitas (suben despacio por los costados) --- */
+.paloma {
+    position: absolute;
+    width: 30px;
+    height: 22px;
+    opacity: 0;
+    animation: vuelo 16s ease-in-out infinite;
+}
+
+.paloma svg {
+    width: 100%;
+    height: 100%;
+    animation: aleteo 4s ease-in-out infinite alternate;
+}
+
+.p1 { left: 1.5%;  animation-delay: 0s; }
+.p2 { right: 1.5%; animation-delay: 4s;  transform: scaleX(-1); }
+.p3 { left: 3.5%;  animation-delay: 8s;  width: 24px; height: 18px; }
+.p4 { right: 3.5%; animation-delay: 12s; width: 24px; height: 18px; transform: scaleX(-1); }
+
+@keyframes vuelo {
+    0%   { top: 88%; opacity: 0; }
+    12%  { opacity: 0.8; }
+    85%  { opacity: 0.6; }
+    100% { top: 8%;  opacity: 0; }
+}
+
+@keyframes aleteo {
+    from { transform: translateX(-3px) rotate(-14deg); }
+    to   { transform: translateX(5px)  rotate(-6deg); }
+}
+
+/* --- Pantalla grande --- */
+@media (min-width: 768px) {
+    body {
+        padding: 80px 70px;
+    }
+
+    .rosario { --b: 18px; }
+    .paloma  { width: 38px; height: 28px; }
+    .p3, .p4 { width: 30px; height: 22px; }
+}
+
+/* --- Celular: más liviano --- */
+@media (max-width: 767px) {
+    .rosario { --b: 13px; left: 34px; right: 34px; }
+    .rosario-top    { top: 22px; }
+    .rosario-bottom { bottom: 22px; }
+    .cruz  { width: 18px; height: 29px; margin-left: -9px; }
+    .paloma { width: 24px; height: 18px; }
+    .p3, .p4 { display: none; } /* solo 2 palomitas en el celular */
+}
+
+/* Respeta a quienes tienen las animaciones desactivadas */
+@media (prefers-reduced-motion: reduce) {
+    .marco::before,
+    .esquina,
+    .rosario::after,
+    .paloma,
+    .paloma svg {
+        animation: none;
+    }
+    .paloma { opacity: 0.6; top: 50%; }
+}

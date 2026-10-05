@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primera Comunión de Yuliana</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- ===== MARCO DECORATIVO ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+        <linearGradient id="oro" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#e6c871"/>
+            <stop offset="55%" stop-color="#c9a24b"/>
+            <stop offset="100%" stop-color="#a98232"/>
+        </linearGradient>
+
+        <!-- Paloma -->
+        <symbol id="ico-paloma" viewBox="0 0 48 36">
+            <g fill="#ffffff" stroke="#c9a24b" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M24 24 C20 28 17 31 12 33 C19 34 26 31 30 25 Z"/>
+                <path d="M44 15 L39.5 12.8 C36.5 11 33.5 12.6 32.5 15.5 C31 19.5 26 22 19 22.5 C13 23 8 26 4 30 C9 30.5 14 29.5 18 28 C24 28 31 25.5 34.5 20.5 C36.5 18 40 17.5 44 15 Z"/>
+                <path d="M20 22 C15 16 16 8 23 3 C24 9 27 14 31 18 Z"/>
+            </g>
+            <circle cx="38" cy="14" r="0.8" fill="#a98232"/>
+        </symbol>
+
+        <!-- Adorno de esquina -->
+        <symbol id="ico-esquina" viewBox="0 0 26 26">
+            <circle cx="13" cy="13" r="9.5" fill="#fffaf0" stroke="#c9a24b" stroke-width="0.8"/>
+            <path d="M13 6.5 L14.6 11.4 L19.5 13 L14.6 14.6 L13 19.5 L11.4 14.6 L6.5 13 L11.4 11.4 Z" fill="url(#oro)"/>
+        </symbol>
+
+        <!-- Cruz -->
+        <symbol id="ico-cruz" viewBox="0 0 20 32">
+            <path d="M8 1 H12 V8 H18 V12 H12 V31 H8 V12 H2 V8 H8 Z" fill="url(#oro)" stroke="#fffaf0" stroke-width="1.4" stroke-linejoin="round" paint-order="stroke"/>
+        </symbol>
+    </defs>
+</svg>
+
+<div class="marco" aria-hidden="true">
+
+    <!-- Esquinas -->
+    <svg class="esquina esq-tl"><use href="#ico-esquina"/></svg>
+    <svg class="esquina esq-tr"><use href="#ico-esquina"/></svg>
+    <svg class="esquina esq-bl"><use href="#ico-esquina"/></svg>
+    <svg class="esquina esq-br"><use href="#ico-esquina"/></svg>
+
+    <!-- Rosario arriba y abajo -->
+    <div class="rosario rosario-top"></div>
+    <div class="rosario rosario-bottom"></div>
+
+    <!-- Cruz del rosario -->
+    <svg class="cruz"><use href="#ico-cruz"/></svg>
+
+    <!-- Palomitas (solo los costados) -->
+    <div class="paloma p1"><svg><use href="#ico-paloma"/></svg></div>
+    <div class="paloma p2"><svg><use href="#ico-paloma"/></svg></div>
+    <div class="paloma p3"><svg><use href="#ico-paloma"/></svg></div>
+    <div class="paloma p4"><svg><use href="#ico-paloma"/></svg></div>
+</div>
+    <main class="main-container">
+
+        <div class="dove">🕊️</div>
+
+        <p class="intro">Con la bendición de Dios y de nuestras familias</p>
+
+        <p class="subtitle">Mi Primera Comunión</p>
+        <h1>Yuliana Salvatierra</h1>
+
+        <div class="divider">✦ ✝ ✦</div>
+
+        <p class="verse">"Dejen que los niños vengan a mí, porque de los que son como ellos es el Reino de Dios."</p>
+
+        <p class="invite">Con mucha alegría te invitamos a compartir este día tan especial para nuestra familia.</p>
+
+        <h2>MARTES 10 DE NOVIEMBRE DE 2026</h2>
+
+        <!-- Ceremonia -->
+        <section class="card">
+            <h3>⛪ Ceremonia</h3>
+            <p><b>Parroquia NOMBRE DE LA PARROQUIA</b></p>
+            <p>Dirección de la parroquia</p>
+            <p>Hora: 00:00 hrs</p>
+            <a class="map-link" href="https://maps.google.com" target="_blank">📍 Cómo llegar</a>
+        </section>
+
+        <!-- Festejo -->
+        <section class="card">
+            <h3>🥂 Celebración</h3>
+            <p><b>NOMBRE DEL SALÓN O LUGAR</b></p>
+            <p>Dirección del festejo</p>
+            <p>Hora: 00:00 hrs</p>
+            <a class="map-link" href="https://maps.google.com" target="_blank">📍 Cómo llegar</a>
+        </section>
+
+               <p class="count-title" id="titulo-cuenta"><b>FALTAN</b></p>
+
+        <!-- Contador -->
+        <div class="c-container" id="contador">
+            <div class="c-items">
+                <div id="dias" class="c-number">00</div>
+                <div class="c-text">DÍAS</div>
+            </div>
+            <div class="c-items">
+                <div id="horas" class="c-number">00</div>
+                <div class="c-text">HORAS</div>
+            </div>
+            <div class="c-items">
+                <div id="minutos" class="c-number">00</div>
+                <div class="c-text">MINUTOS</div>
+            </div>
+            <div class="c-items">
+                <div id="segundos" class="c-number">00</div>
+                <div class="c-text">SEGUNDOS</div>
+            </div>
+        </div>
+
+        <!-- Mensaje del gran día -->
+        <p class="mensaje-dia oculto" id="mensaje-dia"></p>
+
+        <p class="question"><b>¿Nos acompañas en este día tan especial?</b></p>
+
+        <a class="btn" href="https://wa.me/5493874409475?text=Hola!%20Confirmo%20mi%20asistencia%20a%20la%20Comunión%20de%20Yuliana" target="_blank">
+            CONFIRMAR ASISTENCIA
+            <span>Código de vestimenta: elegante sport</span>
+        </a>
+
+        <p class="info-text">Por favor confirmar hasta el 05/11/2026.</p>
+
+        <footer>
+            ¿Quieres una web para tu evento?
+            <a href="https://wa.me/5493874409475" target="_blank">Click aquí para más información</a>
+        </footer>
+
+    </main>
+
+<script src="app.js"></script></body>
+</html>
