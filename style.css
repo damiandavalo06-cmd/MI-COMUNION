@@ -490,3 +490,10 @@ body {
     }
     .paloma { opacity: 0.6; top: 50%; }
 }
+/* Ajuste del contador en celular: que quepa dentro del marco */
+@media (max-width: 767px) {
+    .c-container { gap: 6px; }
+    .c-items { flex: 1 1 0; min-width: 0; padding: 12px 2px 8px; }
+    .c-number { font-size: 1.7rem; }
+    .c-text { font-size: 0.6rem; letter-spacing: 0.5px; }
+}
