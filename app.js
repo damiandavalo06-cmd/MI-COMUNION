@@ -20,7 +20,7 @@ function mostrarMensaje(texto) {
 
 function actualizarCountdown() {
     // Fecha y hora del evento (cambiá la hora por la de la misa)
-    const fechaEvento = new Date("2026-11-10T11:00:00");
+    const fechaEvento = new Date("2026-11-14T11:00:00");
     const ahora = new Date();
 
     const mismoDia = ahora.toDateString() === fechaEvento.toDateString();
