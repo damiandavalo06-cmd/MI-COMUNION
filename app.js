@@ -52,3 +52,76 @@ function actualizarCountdown() {
 
 actualizarCountdown();
 setInterval(actualizarCountdown, 1000);
+/* ===== PORTADA (sobre de invitación) ===== */
+(function () {
+    function iniciar() {
+        var portada = document.getElementById("portada");
+        if (!portada) return;
+
+        document.body.classList.add("pt-bloqueado");
+        var sobre = portada.querySelector(".pt-sobre");
+        var abierta = false;
+
+        // Destellos dorados de fondo
+        for (var i = 0; i < 14; i++) {
+            var b = document.createElement("span");
+            b.className = "pt-brillo";
+            b.textContent = "✦";
+            b.style.left = (6 + Math.random() * 88) + "%";
+            b.style.top = (10 + Math.random() * 78) + "%";
+            b.style.fontSize = (8 + Math.random() * 12) + "px";
+            b.style.animationDelay = (Math.random() * 4) + "s";
+            b.style.animationDuration = (2.5 + Math.random() * 2.5) + "s";
+            portada.appendChild(b);
+        }
+
+        // Chispas que salen del sello al abrir
+        function chispas() {
+            var total = 18;
+            for (var j = 0; j < total; j++) {
+                var c = document.createElement("span");
+                c.className = "pt-chispa";
+                c.textContent = "✦";
+                var ang = (Math.PI * 2 * j) / total + Math.random() * 0.4;
+                var dist = 70 + Math.random() * 90;
+                c.style.setProperty("--dx", Math.cos(ang) * dist + "px");
+                c.style.setProperty("--dy", Math.sin(ang) * dist + "px");
+                c.style.fontSize = (14 + Math.random() * 14) + "px";
+                sobre.appendChild(c);
+            }
+        }
+
+        function terminar() {
+            portada.remove();
+            document.body.classList.remove("pt-bloqueado");
+            window.scrollTo(0, 0);
+        }
+
+        function abrir() {
+            if (abierta) return;
+            abierta = true;
+
+            var reducido = window.matchMedia &&
+                window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+            if (reducido) {
+                portada.classList.add("pt-puertas");
+                setTimeout(terminar, 1600);
+                return;
+            }
+
+            portada.classList.add("pt-abierta");
+            chispas();
+            setTimeout(function () { portada.classList.add("pt-despidiendo"); }, 1700);
+            setTimeout(function () { portada.classList.add("pt-puertas"); }, 2800);
+            setTimeout(terminar, 4500);
+        }
+
+        portada.addEventListener("click", abrir);
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", iniciar);
+    } else {
+        iniciar();
+    }
+})();
